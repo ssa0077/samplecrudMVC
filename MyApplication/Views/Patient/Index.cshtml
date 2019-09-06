@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MyApplication.Models.Patient>
+
+@{
+    ViewBag.Title = "Patients";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Patients</h2>
+<hr />
+<p>
+    @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<div class="row">
+    <div class="col-lg-12">
+        <table id="tblPatient" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>                
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateOfBirth)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UniqueId)
+                    </th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>                       
+                           @Html.DisplayFor(modelItem => item.DateOfBirth, "{0:dd/MM/yyyy}")                       
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UniqueId)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.PatientId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.PatientId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.PatientId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        $('#tblPatient').DataTable({
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false
+        });
+        $('#DateOfBirth').datepicker({
+            dateFormat: "dd/mm/yy",
+            showStatus: true,
+            showWeeks: true,
+            currentText: 'Now',
+            autoSize: true,
+            gotoCurrent: true,
+            showAnim: 'blind',
+            highlightWeek: true
+        });
+    });
+
+   
+</script>
+}
