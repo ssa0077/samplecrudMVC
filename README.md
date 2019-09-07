@@ -30,3 +30,7 @@ Design Approach
 4.	At the moment the application consists of only 1 table. However it is open to addition of more tables and logic. 
 5.	Very basic application in terms of functionality with a loosely coupled architecture for better maintainability in the long run. 
 6.	Test project has been created with a simple list to test CRUD operations. 
+
+Local environment settings
+1. Change the connectionString and input 'Data Source' and 'Initial Catalog' with server and database name as per your local machine in web.config. 
+2. Ef will automatically create the database when the application is run for the first time, provided that its able to talk to your MSSQL server via the connection string. 
