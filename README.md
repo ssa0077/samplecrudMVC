@@ -1,4 +1,4 @@
-# mojsampletest
+# mojsampletest-MVC-EF-.NET
 
 Patient Database to Add, Update, Delete and Read Patient information
 Assumptions 
