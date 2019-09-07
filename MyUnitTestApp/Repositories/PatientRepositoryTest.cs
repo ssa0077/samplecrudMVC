@@ -9,42 +9,42 @@ using System.Threading.Tasks;
 
 namespace MyUnitTestApp.Repositories
 {
-    class MemberRepositoryTest : IPatientRepository
+    class PatientRepositoryTest : IPatientRepository
     {        
-        List<Patient> members = null;             
+        List<Patient> patients = null;             
 
-        public MemberRepositoryTest(List<Patient> mems)
+        public PatientRepositoryTest(List<Patient> pats)
         {
-            members = mems;
+            patients = pats;
         }
 
         public List<Patient> GetPatients()
         {
-            return members;
+            return patients;
         }
 
-        public void InsertMember(Patient member)
+        public void InsertPatient(Patient pat)
         {
-            members.Add(member);
+            patients.Add(pat);
         }
 
-        public void UpdateMember(Patient mem)
+        public void UpdatePatient(Patient pat)
         {
-            int id = mem.MemberId;
-            Patient memToUpdate = members.SingleOrDefault(x => x.MemberId == id);
-            DeleteMember(memToUpdate.MemberId);
-            members.Add(mem);
+            int id = pat.PatientId;
+            Patient memToUpdate = patients.SingleOrDefault(x => x.PatientId == id);
+            DeletePatient(memToUpdate.PatientId);
+            patients.Add(pat);
         }
 
-        public void DeleteMember(int memberId)
+        public void DeletePatient(int patientId)
         {
-            Patient member = members.Where(x => x.MemberId == memberId).FirstOrDefault();
-            members.Remove(member);           
+            Patient patient = patients.Where(x => x.PatientId == patientId).FirstOrDefault();
+            patients.Remove(patient);           
         }
 
-        public Patient GetMemberByID(int id)
+        public Patient GetPatientByID(int id)
         {
-            return members.SingleOrDefault(m => m.MemberId == id);
+            return patients.SingleOrDefault(m => m.PatientId == id);
         }
 
         public void Save()

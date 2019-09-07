@@ -88,8 +88,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Controllers\MemberControllerTest.cs" />
-    <Compile Include="Repositories\MemberRepositoryTest.cs" />
+    <Compile Include="Controllers\PatientControllerTest.cs" />
+    <Compile Include="Repositories\PatientRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
